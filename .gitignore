@@ -60,3 +60,6 @@ typings/
 # webstorm
 .idea/
 *.iml
+
+public
+dist

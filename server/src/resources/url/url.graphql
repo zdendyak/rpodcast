@@ -1,0 +1,14 @@
+type SignedUrl {
+  url: String!
+  key: String!
+}
+
+input FileData {
+  name: String!
+  type: String!
+}
+
+extend type Query {
+  AwsUrl(input: FileData!): SignedUrl!
+  
+}

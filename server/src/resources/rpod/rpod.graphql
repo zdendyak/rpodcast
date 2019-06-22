@@ -1,0 +1,41 @@
+type Rpod {
+  id: ID!
+  title: String!
+  description: String
+  text: String
+  audio: String
+  imageUrl: String
+  user: User!
+  createdAt: String
+  updatedAt: String
+}
+
+input NewRpod {
+  title: String!
+  description: String
+  text: String,
+  audio: String
+  imageUrl: String
+}
+
+input UpdateRpod {
+  id: ID!
+  title: String!
+  description: String
+  text: String
+  audio: String
+  imageUrl: String
+}
+
+
+extend type Query {
+  Rpod(id: ID!): Rpod!
+  Rpods: [Rpod]!
+  UserRpods: [Rpod]!
+}
+
+extend type Mutation {
+  createRpod(input: NewRpod!): Rpod!
+  updateRpod(input: UpdateRpod!): Rpod!
+  deleteRpod(id: ID!): Rpod!
+}

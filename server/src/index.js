@@ -1,17 +1,16 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
+const http = require('http');
+const app = require('./server');
 
-const app = express();
-
-app.use(helmet());
-app.use(bodyParser.json());
-app.use(cors());
-app.use(morgan('combined'));
+const server = http.createServer(app);
 
 const port = process.env.PORT || 8081;
 app.listen(port, () => {
   console.log('Listening on port ', port);
-})
+});
+
+if (module.hot) {
+  module.hot.accept(['./server'], () => {
+    server.removeListener('request', app);
+    server.on('request', app);
+  });
+}

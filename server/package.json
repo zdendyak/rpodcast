@@ -1,20 +1,45 @@
 {
-  "name": "server",
+  "name": "rpod-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^2.6.3",
+    "aws-sdk": "^2.478.0",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
+    "connect-history-api-fallback": "^1.6.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "graphql": "^14.3.1",
     "helmet": "^3.18.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash.merge": "^4.6.1",
     "mongodb": "^3.2.7",
-    "morgan": "^1.9.1"
+    "mongoose": "^5.5.15",
+    "morgan": "^1.9.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "graphql-tag": "^2.10.1",
+    "raw-loader": "^3.0.0",
+    "start-server-webpack-plugin": "^2.2.5",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-node-externals": "^1.7.2"
   }
 }
