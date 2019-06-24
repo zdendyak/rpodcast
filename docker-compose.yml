@@ -1,0 +1,41 @@
+version: '3'
+services: 
+  web:
+    container_name: rpod-vue-client
+    build: ./client
+    volumes:
+      - './client:/client-app'
+      - '/client-app/node_modules'
+    ports: 
+      - '8080:8080'
+    links:
+      - node
+    networks: 
+      - webappnetwork
+  node:
+    container_name: rpod-node-server
+    restart: always
+    build: ./server
+    volumes:
+      - './server:/app'
+      - '/app/node_modules'
+    ports:
+      - '80:8081'
+    depends_on:
+      - "mongo"
+    networks: 
+      - webappnetwork
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodata:/data/db
+    networks: 
+      - webappnetwork
+networks: 
+  webappnetwork:
+    driver: bridge
+volumes:
+  mongodata:

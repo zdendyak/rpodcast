@@ -53,7 +53,8 @@ module.exports = {
               MONGO_URI: JSON.stringify(process.env.MONGO_URI),
               TOKEN_SECRET: JSON.stringify(process.env.TOKEN_SECRET),
               AWS_ACCESS_KEY: JSON.stringify(process.env.AWS_ACCESS_KEY),
-              AWS_ACCESS_SECRET: JSON.stringify(process.env.AWS_ACCESS_SECRET) 
+              AWS_ACCESS_SECRET: JSON.stringify(process.env.AWS_ACCESS_SECRET),
+              GRAPHQL_URL: JSON.stringify(process.env.GRAPHQL_URL)
             }
         })
     ],

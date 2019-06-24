@@ -28,6 +28,7 @@ export const ALL_RPODS = gql`
       audio
       imageUrl
       user {
+        id
         name
       }
     }
@@ -51,25 +52,26 @@ export const GET_RPOD_BY_ID = gql`
   }
 `
 
-export const USER_RPODS = gql`
-  query UserRpods {
-    userRpods: Rpods {
-      id
-      title
-      description
-      text
-      audio
-      imageUrl
-      user {
-        name
-      }
-    }
-  }
-`
+// export const USER_RPODS = gql`
+//   query UserRpods {
+//     userRpods: Rpods {
+//       id
+//       title
+//       description
+//       text
+//       audio
+//       imageUrl
+//       user {
+//         name
+//       }
+//     }
+//   }
+// `
 
 export const GET_USER_QUERY = gql`
   query me {
     user: me {
+      id
       name
       email
       rpods {

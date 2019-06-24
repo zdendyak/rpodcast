@@ -22,7 +22,7 @@
       <v-spacer class="hidden-sm-and-down"></v-spacer>
       <div v-if="!isAuthenticated">
         <v-btn to="/login" flat class="hidden-sm-and-down">SIGN IN</v-btn>
-        <v-btn to="/register" color="blue-grey lighten-3" class="hidden-md-and-down">JOIN US</v-btn>
+        <v-btn to="/register" color="blue-grey lighten-3" class="hidden-sm-and-down">JOIN US</v-btn>
       </div>
       <div v-else>
         <v-btn flat class="hidden-sm-and-down" to="/profile">Profile</v-btn>

@@ -131,12 +131,12 @@ export default {
               imageUrl: urls.image || '',
               audio: urls.audio || ''
             }
-            await this.$apollo
+            const { data: { rpod: { id }}} = await this.$apollo
               .mutate({
                 mutation: queries.CREATE_NEW_RPOD_QUERY,
                 variables: { input }
               })
-            this.$router.push('/profile')
+            this.$router.push('/rpods/' + id)
           } catch (error) {
             this.error = getGraphQLError(error) || 'Something went wrong. Please, try again...' 
             this.snackbar = true;

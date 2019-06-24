@@ -94,7 +94,6 @@ export default {
             this.setUserData({ id, token })
             this.$router.push('/')
           } catch (error) {
-            this.setUserData({ id: null, token: null })
             this.error = getGraphQLError(error) || 'Something went wrong. Please, try again...' 
             this.snackbar = true;
           }
