@@ -13,22 +13,25 @@ jobs:
       run:
         working-directory: ./client
     
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
+#     strategy:
+#       matrix:
+#         node-version: [10.x, 12.x]
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{matrix.node_version}}
+      - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{matrix.node_version}}
+          node-version: 12.x
       - name: NPM Install
         run: |
           npm install
       - name: Production build
         run: |
           npm run build
+      - name: log content
+        run: |
+          ls
       - name:  Deploy to S3
         uses: jakejarvis/s3-sync-action@master
         with:
@@ -39,4 +42,4 @@ jobs:
           AWS_REGION: ${{secrets.AWS_REGION}}
           AWS_S3_BUCKET:  ${{secrets.AWS_BUCKET}}
           # Directory of github to sync, use '.' for the entire repository
-          SOURCE_DIR: "dist"
+          SOURCE_DIR: "client/dist"
